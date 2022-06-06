@@ -1,0 +1,8 @@
+<h1>Order# <%= @order.id %></h1>
+<div>
+  <p>Order Date: <%= @order.order_date %></p>
+  <p>Customer Name: <%= @order.customer.name %></p>
+  <p>Customer Address1: <%= @order.customer.address1 %></p>
+  <p>Customer Address2: <%= @order.customer.address2 %></p>
+</div>
+<%= link_to 'Back', orders_path %>

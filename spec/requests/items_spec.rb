@@ -34,7 +34,7 @@ RSpec.describe 'Items', type: :request do
   end
 
   describe 'PATCH /update' do
-    it 'updates a item' do
+    it 'updates an item' do
       patch item_path(item), params: { item: { name: 'updated' } }
       item.reload
       expect(item.name).to eq 'updated'
@@ -47,7 +47,7 @@ RSpec.describe 'Items', type: :request do
 
   describe 'DELETE /destroy' do
     item = FactoryBot.create(:item)
-    it 'destroy a item' do
+    it 'destroy an item' do
       expect do
         delete item_path(item)
       end.to change(Item, :count).by(-1)

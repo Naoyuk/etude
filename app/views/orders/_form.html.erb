@@ -1,0 +1,13 @@
+<%= form_with(model: @order, data: { turbo: false }) do |f| %>
+  <div>
+    <%= f.label :order_date %>
+    <%= f.text_field :order_date %>
+  </div>
+
+  <div>
+    <%= f.label :customer_id %>
+    <%= f.collection_select :customer_id, Customer.order(:id), :id, :name %>
+  </div>
+
+  <%= f.submit %>
+<% end %>
