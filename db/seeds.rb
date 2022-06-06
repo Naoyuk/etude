@@ -23,3 +23,17 @@ customers.each do |customer|
     address2: customer.address2
   )
 end
+
+items = [
+  { name: 'Atwel Foody', price: 150.00, category_id: 3 },
+  { name: 'The Chief t_shirts', price: 45.00, category_id: 0 },
+  { name: 'Mamquam Pants', price: 120.00, category_id: 1 },
+  { name: 'Brandy Wine T-shirts', price: 43.00, category_id: 0 },
+  { name: 'Sky Pirot 30L', price: 180.00, category_id: 4 },
+  { name: 'Sky Pirot 40L', price: 220.00, category_id: 4 },
+  { name: 'Alpha Jacket', price: 450.00, category_id: 2 }
+]
+
+items.each do |item|
+  Item.create(name: item.name, price: item.price, category_id: item.category_id)
+end

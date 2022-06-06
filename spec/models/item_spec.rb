@@ -3,5 +3,23 @@
 require 'rails_helper'
 
 RSpec.describe Item, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:item) { FactoryBot.create(:item) }
+
+  it 'has valid factory' do
+    expect(item).to be_valid
+  end
+
+  describe 'validations' do
+    it 'is invalid without name' do
+      item.name = nil
+      item.valid?
+      expect(item.errors[:name]).to include("can't be blank")
+    end
+
+    it 'is invalid without price' do
+      item.price = nil
+      item.valid?
+      expect(item.errors[:price]).to include("can't be blank")
+    end
+  end
 end
