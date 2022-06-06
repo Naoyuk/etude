@@ -1,0 +1,18 @@
+<%= form_with(model: @customer, data: { turbo: false }) do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :address1 %>
+    <%= f.text_field :address1 %>
+  </div>
+
+  <div>
+    <%= f.label :address2 %>
+    <%= f.text_field :address2 %>
+  </div>
+
+  <%= f.submit %>
+<% end %>
