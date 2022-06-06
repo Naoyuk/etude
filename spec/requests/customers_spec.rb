@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "Customers", type: :request do
+RSpec.describe 'Customers', type: :request do
   let(:customer) { FactoryBot.create(:customer) }
 
-  describe "GET /index" do
+  describe 'GET /index' do
     it 'returns a 200 response' do
       get customers_path
       expect(response).to have_http_status '200'
@@ -20,9 +22,10 @@ RSpec.describe "Customers", type: :request do
   describe 'POST /create' do
     it 'creates a new customer' do
       expect do
-        post customers_path, params: { customer: { 
+        post customers_path, params: { customer: {
           name: 'newtester',
-          address1: '9999 Sample Rd'} }
+          address1: '9999 Sample Rd'
+        } }
       end.to change(Customer, :count).by(1)
       expect(response).to redirect_to(customers_path)
     end
@@ -30,7 +33,7 @@ RSpec.describe "Customers", type: :request do
 
   describe 'PATCH /update' do
     it 'updates a customer' do
-      patch customer_path(customer), params: { customer: { name: 'updated' }}
+      patch customer_path(customer), params: { customer: { name: 'updated' } }
       customer.reload
       expect(customer.name).to eq 'updated'
     end

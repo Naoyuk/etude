@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "Categories", type: :request do
+RSpec.describe 'Categories', type: :request do
   let(:category) { FactoryBot.create(:category) }
 
-  describe "GET /index" do
+  describe 'GET /index' do
     it 'returns a 200 response' do
       get categories_path
       expect(response).to have_http_status '200'
@@ -28,7 +30,7 @@ RSpec.describe "Categories", type: :request do
 
   describe 'PATCH /update' do
     it 'updates a category' do
-      patch category_path(category), params: { category: { name: 'updated' }}
+      patch category_path(category), params: { category: { name: 'updated' } }
       category.reload
       expect(category.name).to eq 'updated'
     end
