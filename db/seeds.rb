@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 categories = ['T-shirts', 'Pants', 'Insulated Jacket', 'Soft Shell Jacket',
               'Backpack', 'Accessory']
 
