@@ -1,5 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:category) { FactoryBot.create(:category) }
+
+  it 'has valid factory' do
+    expect(category).to be_valid
+  end
+
+  describe 'validations' do
+    it 'is invalid without name' do
+      category.name = nil
+      category.valid?
+      expect(category.errors[:name]).to include("can't be blank")
+    end
+  end
 end
