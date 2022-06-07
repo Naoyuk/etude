@@ -1,6 +1,15 @@
-<div class='items'>
-  <%= item.name %>
-  <%= item.price %>
-  <%= item.category.name %>
-  <%= link_to 'Edit', edit_item_path(item) %>
+<div class='my-4'>
+  <div class="grid gap-4 grid-cols-5 border-b-2 border-gray-600">
+    <div class="col-span-1 text-xl align-middle">
+      <%= item.name %>
+    </div>
+    <div class="m-3">
+      <%= item.price %>
+    </div>
+    <div class="m-3">
+      <%= item.category.name %>
+    </div>
+    <div class="m-3">
+      <%= link_to 'Edit', edit_item_path(item), class: 'px-2 py-1 bg-yellow-400 text-white font-semibold rounded hover:bg-yellow-500' %>
+    </div>
 </div>
