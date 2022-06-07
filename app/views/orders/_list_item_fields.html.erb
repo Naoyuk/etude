@@ -1,0 +1,24 @@
+<div class="nested-fields">
+  <table>
+    <tr>
+      <td>
+        <%= f.collection_select :item_id, Item.order(:id), :id, :name %>
+      </td>
+
+      <td>
+        <%#= @list_item.item.price %>
+      </td>
+
+      <td>
+        <%= f.text_field :quantity %>
+      </td>
+
+      <td>
+        <%#= @list_item.item.price * @list_item.quantity %>
+      </td>
+
+      <td>
+        <%= link_to_remove_association "Del", f %>
+      </td>
+    </tr>
+  </table>

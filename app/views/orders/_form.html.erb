@@ -9,5 +9,13 @@
     <%= f.collection_select :customer_id, Customer.order(:id), :id, :name %>
   </div>
 
+  <%= f.fields_for :list_items do |form| %>
+    <%= render 'list_item_fields', f: form %>
+  <% end %>
+
+  <div>
+    <%= link_to_add_association 'Add Item', f, :list_items %>
+  </div>
+
   <%= f.submit %>
 <% end %>

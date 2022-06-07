@@ -18,9 +18,9 @@ customers = [
 
 customers.each do |customer|
   Customer.create(
-    name: customer.name,
-    address1: customer.address1,
-    address2: customer.address2
+    name: customer[:name],
+    address1: customer[:address1],
+    address2: customer[:address2]
   )
 end
 
@@ -35,5 +35,5 @@ items = [
 ]
 
 items.each do |item|
-  Item.create(name: item.name, price: item.price, category_id: item.category_id)
+  Item.create(name: item[:name], price: item[:price], category_id: item[:category_id])
 end

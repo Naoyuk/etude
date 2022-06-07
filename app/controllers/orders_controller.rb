@@ -7,6 +7,7 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    @list_item = @order.list_items.build
   end
 
   def create
@@ -47,6 +48,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:order_date, :customer_id)
+    params.require(:order).permit(:order_date, :customer_id,
+      list_items_attributes:[ :id, :item_id, :quantity, :_destroy])
   end
 end
