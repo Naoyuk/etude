@@ -9,10 +9,5 @@
     <%= f.text_field :price %>
   </div>
 
-  <div>
-    <%= f.label :category_id %>
-    <%= f.collection_select :category_id, Category.order(:id), :id, :name %>
-  </div>
-
   <%= f.submit %>
 <% end %>

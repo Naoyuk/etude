@@ -2,7 +2,7 @@
 
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @items = Item.all.order(:id)
   end
 
   def new
@@ -40,9 +40,38 @@ class ItemsController < ApplicationController
     end
   end
 
+  def import
+    Item.import(params[:file])
+    redirect_to items_url
+  end
+
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :category_id)
+    params.require(:item).permit(
+      :title,
+      :price,
+      :category_id,
+      :item_code,
+      :upc,
+      :brand,
+      :size,
+      :pack,
+      :z_price,
+      :stock,
+      :depertment,
+      :availability_status,
+      :case_upc,
+      :asin,
+      :ean_upc,
+      :model_number,
+      :description,
+      :replenishment_status,
+      :effective_date,
+      :current_cost,
+      :cost,
+      :current_cost_currency,
+      :cost_currency
+    )
   end
 end

@@ -1,2 +1,22 @@
 <%= link_to 'New Item', new_item_path, class: 'px-2 py-1 bg-blue-400 text-white font-semibold rounded hover:bg-blue-500' %>
-<%= render @items %>
+<table>
+  <thead>
+    <tr class='border'>
+      <th class='px-4'>id</th>
+      <th class='px-4'>Item Code</th>
+      <th class='px-4'>ASIN</th>
+      <th class='px-4'>Title</th>
+      <th class='px-4'>Price</th>
+      <th class='px-4'>pack</th>
+      <th class='px-4'>created at</th>
+      <th class='px-4'>updated at</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @items %>
+  </tbody>
+
+<%= form_with url: import_items_path, local: true do |f| %>
+  <%= f.file_field :file %>
+  <%= f.submit %>
+<% end %>
