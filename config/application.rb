@@ -44,5 +44,8 @@ module Etude
                        helper_specs: false,
                        routing_specs: false
     end
+
+    # PDFのレイアウトファイルのパス
+    config.eager_load_paths += %W(#{Rails.root}/app/assets/pdfs)
   end
 end
