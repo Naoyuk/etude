@@ -1,24 +1,26 @@
-<div class="nested-fields">
-  <table>
-    <tr>
-      <td>
-        <%= f.collection_select :item_id, Item.order(:id), :id, :name %>
-      </td>
+<div class="my-3 grid-cols-6 nested-fields">
+  <tr>
+    <td class="col-span-3">
+      <%= f.collection_select :item_id, Item.order(:id), :id, :name %>
+    </td>
 
-      <td>
-        <%#= @list_item.item.price %>
-      </td>
+    <td class="col-span-2">
+      <%#= @list_item.item.price %>
+      price
+    </td>
 
-      <td>
-        <%= f.text_field :quantity %>
-      </td>
+    <td class="col-span-1">
+      <%= f.text_field :quantity %>
+    </td>
 
-      <td>
-        <%#= @list_item.item.price * @list_item.quantity %>
-      </td>
+    <td class="col-span-1">
+      <%#= @list_item.item.price * @list_item.quantity %>
+      Subtotal
+    </td>
 
-      <td>
-        <%= link_to_remove_association "Del", f %>
-      </td>
-    </tr>
-  </table>
+    <td>
+      <%= link_to_remove_association "Del", f,
+        class: 'px-2 py-1 bg-red-400 text-white font-semibold rounded hover:bg-red-500' %>
+    </td>
+  </tr>
+</div>

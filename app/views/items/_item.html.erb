@@ -1,6 +1,10 @@
-<div class='items'>
-  <%= item.name %>
-  <%= item.price %>
-  <%= item.category.name %>
-  <%= link_to 'Edit', edit_item_path(item) %>
-</div>
+<tr>
+  <td class='py-2 px-2'><%= item.id %></td>
+  <td class='py-2 px-2'><%= item.item_code %></td>
+  <td class='py-2 px-2'><%= item.asin %></td>
+  <td class='py-2 px-2'><%= item.title %></td>
+  <td class='py-2 px-2'><%= item.price %></td>
+  <td class='py-2 px-2'><%= item.pack %></td>
+  <td class='py-2 px-2'><%= item.created_at %></td>
+  <td class='py-2 px-2'><%= item.updated_at %></td>
+</tr>
