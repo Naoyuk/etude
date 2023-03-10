@@ -10,15 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_06_165252) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_23_201247) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "customers", force: :cascade do |t|
     t.string "name"
@@ -29,12 +23,30 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_06_165252) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.string "name"
+    t.string "title"
     t.float "price"
-    t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_items_on_category_id"
+    t.string "item_code"
+    t.string "upc"
+    t.string "brand"
+    t.integer "size"
+    t.integer "pack"
+    t.float "z_price"
+    t.integer "stock"
+    t.string "depertment"
+    t.integer "availability_status"
+    t.float "case_upc"
+    t.string "asin"
+    t.string "ean_upc"
+    t.string "model_number"
+    t.text "description"
+    t.integer "replenishment_status"
+    t.date "effective_date"
+    t.float "current_cost"
+    t.float "cost"
+    t.string "current_cost_currency"
+    t.string "cost_currency"
   end
 
   create_table "list_items", force: :cascade do |t|
@@ -55,7 +67,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_06_165252) do
     t.index ["customer_id"], name: "index_orders_on_customer_id"
   end
 
-  add_foreign_key "items", "categories"
   add_foreign_key "list_items", "items"
   add_foreign_key "list_items", "orders"
   add_foreign_key "orders", "customers"

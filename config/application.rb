@@ -14,6 +14,7 @@ require 'action_mailbox/engine'
 require 'action_text/engine'
 require 'action_view/railtie'
 require 'action_cable/engine'
+require 'roo'
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -43,5 +44,8 @@ module Etude
                        helper_specs: false,
                        routing_specs: false
     end
+
+    # PDFのレイアウトファイルのパス
+    config.eager_load_paths += %W(#{Rails.root}/app/assets/pdfs)
   end
 end

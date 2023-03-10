@@ -1,21 +1,51 @@
-<%= form_with(model: @order, data: { turbo: false }) do |f| %>
-  <div>
-    <%= f.label :order_date %>
-    <%= f.text_field :order_date %>
-  </div>
+<article class="my-4">
+  <%= form_with(model: @order, data: { turbo: false }) do |f| %>
+    <% if f.object.errors.present? %>
+      <div class="text-red-500 border-red-800 font-bold border-2 p-2 mb-2">
+        <%= f.error_notification %>
+        <%= f.error_notification(
+              message: f.object.errors.full_messages.to_sentence
+            ) %>
+      </div>
+    <% end %>
+    <div class="grid gap-4 grid-cols-6">
+      <div class="col-span-4 text-xl">
+        <%= f.label :order_date %>
+        <%= f.date_field :order_date %>
+      </div>
 
-  <div>
-    <%= f.label :customer_id %>
-    <%= f.collection_select :customer_id, Customer.order(:id), :id, :name %>
-  </div>
+      <div class="col-span-3">
+        <div class="customer">
+          <div class="text-lg font-bold">
+            <%= f.label :customer_id %>
+            <%= f.collection_select :customer_id, Customer.order(:id), :id, :name %>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <%= f.fields_for :list_items do |form| %>
-    <%= render 'list_item_fields', f: form %>
+    <div class="my-3 grid gap-4 grid-cols-6">
+      <div class="col-span-6">
+        <table>
+          <thead>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+          </thead>
+          <%= f.fields_for :list_items do |form| %>
+            <%= render 'list_item_fields', f: form %>
+          <% end %>
+        </table>
+      </div>
+    </div>
+
+    <div class="col-span-6">
+      <%= link_to_add_association 'Add Item', f, :list_items, class: 'px-2 py-1 bg-yellow-400 text-white font-semibold rounded hover:bg-yellow-500' %>
+    </div>
+
+    <div class="my-3 col-span-6">
+      <%= f.submit 'Checkout', :class => 'px-2 py-1 bg-blue-400 text-white font-semibold rounded hover:bg-blue-500' %>
+    </div>
   <% end %>
-
-  <div>
-    <%= link_to_add_association 'Add Item', f, :list_items %>
-  </div>
-
-  <%= f.submit %>
-<% end %>
+</article>
