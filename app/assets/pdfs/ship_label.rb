@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ShipLabel < Prawn::Document
-  def initialize(order)
+  def initialize(orders)
     super(
       page_size: 'A4',
       page_layout: :portrait,
@@ -11,14 +11,20 @@ class ShipLabel < Prawn::Document
       right_margin: 20
     )
 
-    @order = order[0]
+    @orders = orders
+    last_order_index = @orders.count - 1
 
-    stroke_axis
+    orders.each_with_index do |order, i|
+      stroke_axis
 
-    ship_from_address
-    ship_to_address
-    move_down 20
-    order_details
+      ship_from_address
+      ship_to_address
+      move_down 20
+      order_details(order)
+      if i < last_order_index
+        self.start_new_page
+      end
+    end
   end
 
   def ship_from_address
@@ -46,7 +52,7 @@ class ShipLabel < Prawn::Document
     }
   end
 
-  def order_details
-    text "PO#: #{@order.id}"
+  def order_details(order)
+    text "PO#: #{order.id}"
   end
 end
