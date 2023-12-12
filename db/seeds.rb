@@ -28,5 +28,5 @@ items = [
 ]
 
 items.each do |item|
-  Item.create(title: item[:title], price: item[:price], category_id: item[:category_id])
+  Item.create(title: item[:title], price: item[:price])
 end
