@@ -13,7 +13,7 @@ development:
 test:
   <<: *default
   database: <%= ENV['POSTGRES_NAME'] %>
-  passwrod: <%= ENV['POSTGRES_PASSWORD'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
   host: 127.0.0.1
 
 production:
