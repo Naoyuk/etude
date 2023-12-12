@@ -1,12 +1,5 @@
 # frozen_string_literal: true
 
-categories = ['T-shirts', 'Pants', 'Insulated Jacket', 'Soft Shell Jacket',
-              'Backpack', 'Accessory']
-
-categories.each do |category|
-  Category.create(name: category)
-end
-
 customers = [
   { name: 'James Smith', address1: '1234 Pemberton Ave' },
   { name: 'John Williams', address1: '1111 Second Ave', address2: '#112' },

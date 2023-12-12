@@ -21,12 +21,10 @@ RSpec.describe 'Items', type: :request do
 
   describe 'POST /create' do
     it 'creates a new item' do
-      category = FactoryBot.create(:category)
       expect do
         post items_path, params: { item: {
-          name: 'newtester',
-          price: 10.00,
-          category_id: category.id
+          title: 'newtester',
+          price: 10.00
         } }
       end.to change(Item, :count).by(1)
       expect(response).to redirect_to(items_path)
@@ -35,9 +33,9 @@ RSpec.describe 'Items', type: :request do
 
   describe 'PATCH /update' do
     it 'updates an item' do
-      patch item_path(item), params: { item: { name: 'updated' } }
+      patch item_path(item), params: { item: { title: 'updated' } }
       item.reload
-      expect(item.name).to eq 'updated'
+      expect(item.title).to eq 'updated'
 
       patch item_path(item), params: { item: { price: 15.00 } }
       item.reload
