@@ -8,13 +8,13 @@ default: &default
 development:
   <<: *default
   database: <%= ENV['POSTGRES_NAME'] %>
-  host: 127.0.0.1
+  host: localhost
 
 test:
   <<: *default
   database: <%= ENV['POSTGRES_NAME'] %>
   password: <%= ENV['POSTGRES_PASSWORD'] %>
-  host: 127.0.0.1
+  host: localhost
 
 production:
   <<: *default
