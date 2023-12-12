@@ -12,7 +12,7 @@ jobs:
       postgres:
         image: postgres:14
         env:
-          POSTGRES_HOST: 'localhost'
+          POSTGRES_HOST: localhost
           POSTGRES_USER: ${{ secrets.PSQL_USER_TEST }}
           POSTGRES_PASSWORD: ${{ secrets.PSQL_PASSWORD_TEST }}
           POSTGRES_DB: ${{ secrets.PSQL_DB_TEST }}
@@ -44,12 +44,9 @@ jobs:
       - name: Assets Precompile
         run: RAILS_ENV=test bundle exec rails assets:precompile
 
-      - name: Rspec
-        run: bundle exec rspec
-
       - name: Test with RSpec
         env:
-          POSTGRES_HOST: 'localhost'
+          POSTGRES_HOST: localhost
           POSTGRES_USER: ${{ secrets.PSQL_USER_TEST }}
           POSTGRES_PASSWORD: ${{ secrets.PSQL_PASSWORD_TEST }}
           POSTGRES_DB: ${{ secrets.PSQL_DB_TEST }}
