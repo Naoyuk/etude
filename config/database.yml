@@ -6,15 +6,15 @@ default: &default
 
 development:
   <<: *default
-  database: <%= ENV['POSTGRES_NAME'] %>
+  database: <%= ENV['POSTGRES_DB'] %>
   host: localhost
 
 test:
   <<: *default
-  database: <%= ENV['POSTGRES_NAME'] %>
+  database: <%= ENV['POSTGRES_DB'] %>
   password: <%= ENV['POSTGRES_PASSWORD'] %>
   host: localhost
 
 production:
   <<: *default
-  database: <%= ENV['POSTGRES_NAME'] %>
+  database: <%= ENV['POSTGRES_DB'] %>

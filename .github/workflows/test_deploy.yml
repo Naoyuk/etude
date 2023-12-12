@@ -52,6 +52,7 @@ jobs:
           POSTGRES_DB: ${{ secrets.PSQL_DB_TEST }}
           RAILS_ENV: test
         run: |
+          bundle exec rails db:drop
           bundle exec rails db:setup
           bundle exec rails db:migrate
           bundle exec rspec
