@@ -11,9 +11,9 @@ RSpec.describe Item, type: :model do
 
   describe 'validations' do
     it 'is invalid without name' do
-      item.name = nil
+      item.title = nil
       item.valid?
-      expect(item.errors[:name]).to include("can't be blank")
+      expect(item.errors[:title]).to include("can't be blank")
     end
 
     it 'is invalid without price' do
