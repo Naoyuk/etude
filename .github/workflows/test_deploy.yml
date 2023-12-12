@@ -40,8 +40,10 @@ jobs:
           bundle config --local without production
           bundle install
 
+      - name: Assets Precompile
         - run: RAILS_ENV=test bundle exec rails assets:precompile
 
+      - name: Rspec
         - run: bundle exec rspec
 
       - name: Test with RSpec
