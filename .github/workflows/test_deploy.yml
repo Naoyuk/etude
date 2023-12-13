@@ -31,6 +31,12 @@ jobs:
         with:
           ruby-version: 3.1.2
 
+      - name: Cache bundle
+        uses: actions/cache@v3
+        with:
+          path: vendor/bundle
+          key: bundle-v1-${{ hashFiles('Gemfile.lock') }}
+
       - uses: actions/setup-node@v4
         with:
           node-version: 16
@@ -40,6 +46,12 @@ jobs:
           bundle config --local path vendor/bundle
           bundle config --local without production
           bundle install
+
+      - name: Cache yarn
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: yarn-v1-${{ hashFiles('yarn.lock') }}
 
       - name: Assets Precompile
         run: RAILS_ENV=test bundle exec rails assets:precompile
