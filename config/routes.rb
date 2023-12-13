@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'rates/index'
   resources :list_items
   resources :orders
   resources :customers
+  resources :rates
   resources :items do
     collection do
       post :import
