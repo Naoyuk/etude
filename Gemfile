@@ -7,6 +7,7 @@ ruby '3.2.2'
 gem 'bootsnap', require: false
 gem 'cocoon'
 gem 'cssbundling-rails'
+gem 'dotenv-rails'
 gem 'image_processing', '~> 1.2'
 gem 'jbuilder'
 gem 'jsbundling-rails'
@@ -26,7 +27,6 @@ gem 'prawn-rails'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-  gem 'dotenv-rails'
   gem 'rspec-rails'
   gem 'rubocop'
 end
