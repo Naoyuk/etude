@@ -1,0 +1,27 @@
+<h1 class="text-3xl font-bold underline">Exchange Rate</h1>
+<table class="table-auto w-full">
+  <thead class="bg-gray-300">
+    <th class="py-2 px-4">Get At</th>
+    <th class="py-2 px-4">USD</th>
+    <th class="py-2 px-4">CAD</th>
+    <th class="py-2 px-4">EUR</th>
+    <th class="py-2 px-4">JPY</th>
+    <th class="py-2 px-4">USD/JPY</th>
+    <th class="py-2 px-4">CAD/JPY</th>
+    <th class="py-2 px-4">EUR/JPY</th>
+  </thead>
+  <tbody>
+    <% @rates.each do |rate| %>
+      <tr class="<%= cycle('odd', 'even bg-gray-100') %>">
+        <td class="py-2 px-4 text-center"><%= rate.created_at %></td>
+        <td class="py-2 px-4 text-center"><%= rate.usd.round(4) %></td>
+        <td class="py-2 px-4 text-center"><%= rate.cad.round(4) %></td>
+        <td class="py-2 px-4 text-center"><%= rate.eur.round(4) %></td>
+        <td class="py-2 px-4 text-center"><%= rate.jpy.round(4) %></td>
+        <td class="py-2 px-4 text-center"><%= rate.usd_jpy(rate) %></td>
+        <td class="py-2 px-4 text-center"><%= rate.cad_jpy(rate) %></td>
+        <td class="py-2 px-4 text-center"><%= rate.eur_jpy(rate) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
