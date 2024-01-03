@@ -39,7 +39,10 @@ pidfile ENV.fetch('PIDFILE', 'tmp/pids/server.pid')
 # before forking the application. This takes advantage of Copy On Write
 # process behavior so workers use less memory.
 #
-# preload_app!
+preload_app!
 
 # Allow puma to be restarted by `bin/rails restart` command.
 plugin :tmp_restart
+
+app_root = File.expand_path("../../", __FILE__)
+bind "unix:#{app_root}/tmp/sockets/puma.sock"
