@@ -3,13 +3,13 @@
   "private": "true",
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
-    "@hotwired/turbo-rails": "^8.0.4",
-    "@tailwindcss/typography": "^0.5.13",
-    "autoprefixer": "^10.4.19",
+    "@hotwired/turbo-rails": "^8.0.5",
+    "@tailwindcss/typography": "^0.5.14",
+    "autoprefixer": "^10.4.20",
     "cocoon-js-vanilla": "^1.5.1",
-    "esbuild": "^0.23.0",
-    "postcss": "^8.4.39",
-    "tailwindcss": "^3.4.4"
+    "esbuild": "^0.23.1",
+    "postcss": "^8.4.41",
+    "tailwindcss": "^3.4.10"
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds",
